@@ -1,0 +1,200 @@
+/* Start Global */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+blockquote {
+  text-align: justify;
+  font-family: 'koodak';
+  font-size: 1rem;
+}
+/* End Global */
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+/* Start Layout */
+.router-link-active {
+  padding-bottom: 5px;
+  color: rgba(0, 0, 0, 0.9) !important;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9) !important;
+  /* border-bottom: 2px solid rgba(17, 0, 255, 0.9) !important; */
+}
+
+.bg-layout {
+  background-color: rgb(228, 94, 255);
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footer p {
+  margin: 0px;
+}
+/* End Layout */
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+/* Start Index Page */
+
+/* Start About Section */
+#about-text p {
+  font-size: 18px;
+  padding: 20px 40px;
+}
+
+.title {
+  padding-top: 20px;
+}
+
+.underline {
+  width: 20rem;
+  height: 0.2rem;
+  background-color: rgb(228, 94, 255);
+  margin: 1rem auto 2rem;
+}
+/* End About Section */
+
+/* Start Services Section */
+#services .items {
+  display: flex;
+}
+
+#services .items div {
+  flex: 1;
+}
+
+#services .items img {
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  height: 200px;
+  width: 200px;
+}
+
+.product-types {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-types:hover {
+  cursor: pointer;
+  background: #f8f9fa;
+}
+
+#services h4 {
+  padding-top: 20px;
+}
+/* End Services Section */
+
+/* Start Founders Section */
+#founders img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.text-color {
+  color: #000;
+}
+
+.founders-hr {
+  border-bottom: 2px solid rgb(228, 94, 255);
+}
+/* End Founders Section */
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+/* Start Product Page */
+#subtitle {
+  width: 960px;
+  margin-left: 175px;
+}
+
+#ShowProducta .card {
+  height: 475px;
+  width: 225px;
+  margin: 10px;
+}
+
+#ShowProducta {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#ShowProducta div:hover {
+  cursor: pointer;
+  background: #f8f9fa;
+}
+
+.card-body,
+.card-title,
+.card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-width {
+  width: 470px;
+  margin-left: 420px;
+}
+/* End Product Page */
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+/* Start Contact Page */
+.underline-customize {
+  width: 20rem;
+  height: 0.2rem;
+  background-color: rgb(228, 94, 255);
+  margin: 1rem auto 1rem;
+}
+
+.strong-text strong {
+  font-size: 19px;
+}
+.underline-pro {
+  width: 30rem;
+  height: 0.2rem;
+  background-color: rgb(228, 94, 255);
+  margin: 1rem auto 2rem;
+}
+
+#social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#social-media a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 0px;
+}
+
+.social-media-icon {
+  height: 30px;
+  width: 30px;
+}
+/* End Contact Page */
+/* --------------------------------------------------------------------------------------------------------------------------------- */
+/* Start Cart Page */
+/* Loading... */
+/* End Cart Page */
+/* --------------------------------------------------------------------------------------------------------------------------------- */
