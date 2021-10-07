@@ -6,10 +6,12 @@ import CartContext from '../context/CartContext'
 import CartReducer from '../reducers/Cart'
 
 const Layout = ({ children }) => {
-  // const carts = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('carts')) : null
+  const carts = typeof window !== 'undefined' && localStorage.getItem('carts') ?
+    JSON.parse(localStorage.getItem('carts')) : []
   // or:
   // const carts = JSON.parse(localStorage.getItem('carts'))
-  const [state, dispatch] = useReducer(CartReducer, { carts: [] })
+  const [state, dispatch] = useReducer(CartReducer, { carts: carts })
+
   return (
     <CartContext.Provider
       value={{

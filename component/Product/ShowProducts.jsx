@@ -6,25 +6,24 @@ import CartContext from '../../context/CartContext'
 
 const ShowProducts = ({ data }) => {
   const { carts, dispatchCart } = useContext(CartContext)
-  const added = carts.includes(data.id)
-  const handleAdd = () => {
-    if (added) {
+  const handleAdd = (productID) => {
+    if (carts.includes(productID)) {
       dispatchCart({
         type: 'REMOVE_FROM_CART',
-        id: data.id,
+        id: productID,
       })
     } else {
       dispatchCart({
         type: 'ADD_TO_CART',
-        id: data.id,
+        id: productID,
       })
     }
   }
 
   return (
     <div id="ShowProducta">
-      {data.map((Product) => (
-        <div className="card shadow-sm">
+      {data.map((Product, key) => (
+        <div key={key} className="card shadow-sm">
           <Image
             src={Product.image}
             alt=""
@@ -38,10 +37,10 @@ const ShowProducts = ({ data }) => {
           <div className="card-footer d-flex justify-content-between align-items-center">
             <button
               type="button"
-              onClick={handleAdd}
+              onClick={() => handleAdd(Product.id)}
               className="btn btn-outline-primary btn-sm d-flex justify-content-between align-items-center"
             >
-              {added ? (
+              {carts.includes(Product.id) ? (
                 <>
                   <MdRemoveShoppingCart />
                   Remove From Cart

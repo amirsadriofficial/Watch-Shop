@@ -1,19 +1,20 @@
 const CartReducer = (state, action) => {
-  let newCarts = []
+  let newCarts = state.carts;
   switch (action.type) {
     case 'ADD_TO_CART':
-      newCarts = [...state.carts, action.id]
+      newCarts = [...newCarts, action.id]
       localStorage.setItem('carts', JSON.stringify(newCarts))
       return {
         ...state,
         carts: newCarts,
       }
     case 'REMOVE_FROM_CART':
-      newCarts = state.carts
-      newCarts.splice(
-        state.carts.findIndex((cartId) => cartId === action.id),
-        1
-      )
+      newCarts.forEach((value, index, array) => {
+        if (value === action.id) {
+          array.splice(index, 1);
+          newCarts = array;
+        }
+      })
       localStorage.setItem('carts', JSON.stringify(newCarts))
       return {
         ...state,
