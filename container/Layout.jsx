@@ -12,8 +12,6 @@ const Layout = ({ children }) => {
 =======
   // const carts = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('carts')) : null
 >>>>>>> e206373b0345a4a7f321caf9ce4e006b31ff1a27
-  // or:
-  // const carts = JSON.parse(localStorage.getItem('carts'))
   const [state, dispatch] = useReducer(CartReducer, { carts: carts })
 
   return (
