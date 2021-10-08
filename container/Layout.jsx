@@ -10,6 +10,8 @@ const Layout = ({ children }) => {
     typeof window !== 'undefined' && localStorage.getItem('carts')
       ? JSON.parse(localStorage.getItem('carts'))
       : []
+  // or:
+  // const carts = JSON.parse(localStorage.getItem('carts'))
   const [state, dispatch] = useReducer(CartReducer, { carts })
 
   return (
