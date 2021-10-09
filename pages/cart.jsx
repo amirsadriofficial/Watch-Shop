@@ -45,7 +45,7 @@ const Cart = () => {
           {currentProducts == 0 ? (
             <div className="col-md-12 text-center mb-5">
               <MdShoppingCart size={100} />
-              <h3 className="text-bold">Cart Is Empty</h3>
+              <h3 className="text-bold">Cart is empty</h3>
               <Link href="/product" className="btn btn-outline-success mt-3">
                 <a className="btn btn-outline-success mt-3">Products</a>
               </Link>
@@ -77,7 +77,7 @@ const Cart = () => {
                                 className="img-fluid"
                               />
                             </div>
-                            <div className="col-lg-10">
+                            <div className="col-lg-10 text-center">
                               <h5>{item.name}</h5>
                               <p>{item.description}</p>
                             </div>
