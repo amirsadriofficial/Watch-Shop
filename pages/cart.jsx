@@ -20,10 +20,13 @@ const Cart = () => {
   useEffect(() => {
     const SelectedProductsID = JSON.parse(localStorage.getItem('carts'))
     if (Array.isArray(SelectedProductsID) && SelectedProductsID.length > 0) {
+      const total = 0
       const SelectedProducts = []
       SelectedProductsID.filter((id) =>
         ProductsData.filter((obj) =>
-          obj.id === id ? SelectedProducts.push(obj) : null
+          obj.id === id
+            ? SelectedProducts.push({ ...obj, ...{ quantity: 1 } })
+            : null
         )
       )
       setState({ ...state, isloaded: true, currentProducts: SelectedProducts })
@@ -32,11 +35,34 @@ const Cart = () => {
     }
   }, [])
 
+  const onHandleQuantity = (item, action) => {
+    const s = state.currentProducts
+    const i = item
+    switch (action) {
+      case 'increase':
+        i.quantity += 1
+        break
+      case 'decrease':
+        i.quantity -= 1
+        break
+      default:
+        break
+    }
+    s.filter((obj) =>
+      obj.id === i.id ? Object.assign(obj, { quantity: i.quantity }) : null
+    )
+    setState({ ...state, currentProducts: s })
+  }
+
   if (!state.isloaded) {
     return <h1>Loading</h1>
   }
 
   const { currentProducts } = state
+
+  let total = 0
+
+  currentProducts.filter((obj) => (total += obj.quantity * obj.price))
 
   return (
     <Layout>
@@ -45,7 +71,7 @@ const Cart = () => {
           {currentProducts == 0 ? (
             <div className="col-md-12 text-center mb-5">
               <MdShoppingCart size={100} />
-              <h3 className="text-bold">Cart is empty</h3>
+              <h3 className="text-bold">Cart Is Empty</h3>
               <Link href="/product" className="btn btn-outline-success mt-3">
                 <a className="btn btn-outline-success mt-3">Products</a>
               </Link>
@@ -77,7 +103,7 @@ const Cart = () => {
                                 className="img-fluid"
                               />
                             </div>
-                            <div className="col-lg-10 d-flex flex-column justify-content-center align-items-center">
+                            <div className="col-lg-10">
                               <h5>{item.name}</h5>
                               <p>{item.description}</p>
                             </div>
@@ -87,19 +113,21 @@ const Cart = () => {
                         <td className="align-middle">
                           <button
                             type="button"
-                            onClick="increment(item.id)"
+                            onClick={() => onHandleQuantity(item, 'increase')}
                             className="btn btn-sm btn-primary me-2"
                           >
                             +
                           </button>
                           <span>{item.quantity}</span>
-                          <button
-                            type="button"
-                            onClick="decrement(item.id)"
-                            className="btn btn-sm btn-primary ms-2"
-                          >
-                            -
-                          </button>
+                          {item.quantity > 1 ? (
+                            <button
+                              type="button"
+                              onClick={() => onHandleQuantity(item, 'decrease')}
+                              className="btn btn-sm btn-primary ms-2"
+                            >
+                              -
+                            </button>
+                          ) : null}
                         </td>
                         <td className="align-middle">
                           ${item.price * item.quantity}
@@ -107,7 +135,16 @@ const Cart = () => {
                         <td className="align-middle" style={{ width: '15%' }}>
                           <button
                             type="button"
-                            onClick="removeFromCart(item.id)"
+                            onClick={() => {
+                              const d = JSON.parse(
+                                localStorage.getItem('carts')
+                              )
+                              if (d && d.includes(item.id)) {
+                                d.splice(d.indexOf(item.id), 1)
+                                localStorage.setItem('carts', JSON.stringify(d))
+                                window.location.replace('/cart')
+                              }
+                            }}
                             className="btn btn-danger btn-sm"
                           >
                             Delete
@@ -124,7 +161,10 @@ const Cart = () => {
                     <td>
                       <button
                         type="button"
-                        click="clearCart"
+                        onClick={() => {
+                          localStorage.removeItem('carts'),
+                            window.location.replace('/cart')
+                        }}
                         className="btn btn-dark"
                       >
                         Clear Cart
@@ -135,7 +175,7 @@ const Cart = () => {
                       className="hidden-xs text-center"
                       style={{ width: '15%' }}
                     >
-                      <strong>Total : NaN</strong>
+                      <strong>Total : {total}</strong>
                     </td>
                     <td>
                       <a href="#" className="btn btn-success btn-block">
