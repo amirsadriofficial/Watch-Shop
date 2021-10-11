@@ -167,8 +167,8 @@ const Cart = () => {
                         type="button"
                         onClick={() => {
                           // eslint-disable-next-line no-unused-expressions
-                          localStorage.removeItem('carts'),
-                            window.location.replace('/cart')
+                          localStorage.removeItem('carts')
+                          window.location.replace('/cart')
                         }}
                         className="btn btn-dark"
                       >
