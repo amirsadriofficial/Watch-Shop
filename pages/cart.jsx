@@ -20,7 +20,7 @@ const Cart = () => {
   useEffect(() => {
     const SelectedProductsID = JSON.parse(localStorage.getItem('carts'))
     if (Array.isArray(SelectedProductsID) && SelectedProductsID.length > 0) {
-      const total = 0
+      // const total = 0
       const SelectedProducts = []
       SelectedProductsID.filter((id) =>
         ProductsData.filter((obj) =>
@@ -62,17 +62,20 @@ const Cart = () => {
 
   let total = 0
 
+  // eslint-disable-next-line no-return-assign
   currentProducts.filter((obj) => (total += obj.quantity * obj.price))
 
   return (
     <Layout>
       <div className="container">
         <div className="row mt-5">
+          {/* eslint-disable-next-line eqeqeq */}
           {currentProducts == 0 ? (
             <div className="col-md-12 text-center mb-5">
               <MdShoppingCart size={100} />
               <h3 className="text-bold">Cart Is Empty</h3>
               <Link href="/product" className="btn btn-outline-success mt-3">
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a className="btn btn-outline-success mt-3">Products</a>
               </Link>
             </div>
@@ -90,6 +93,7 @@ const Cart = () => {
                 </thead>
                 {currentProducts.length > 0 ? (
                   currentProducts.map((item, key) => (
+                    // eslint-disable-next-line react/no-array-index-key
                     <tbody key={key}>
                       <tr vFor="item in cartItems" key="item.id">
                         <td className="align-middle">
@@ -162,6 +166,7 @@ const Cart = () => {
                       <button
                         type="button"
                         onClick={() => {
+                          // eslint-disable-next-line no-unused-expressions
                           localStorage.removeItem('carts'),
                             window.location.replace('/cart')
                         }}
@@ -178,6 +183,7 @@ const Cart = () => {
                       <strong>Total : {total}</strong>
                     </td>
                     <td>
+                      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                       <a href="#" className="btn btn-success btn-block">
                         Checkout
                       </a>
