@@ -22,22 +22,27 @@ const Contact = () => {
         <h2 className="text-center mt-5">Follow us on social media</h2>
         <div className="underline-pro" />
         <div id="social-media">
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <FaInstagram size={50} />
             <h5 className="py-3">Instagram</h5>
           </a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <FaTelegramPlane size={50} />
             <h5 className="py-3">Telegram</h5>
           </a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <FaFacebookF size={50} />
             <h5 className="py-3">facebook</h5>
           </a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <FaTwitter size={50} />
             <h5 className="py-3">Twitter</h5>
           </a>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a href="#">
             <FaLinkedinIn size={50} />
             <h5 className="py-3">Linkedin</h5>
