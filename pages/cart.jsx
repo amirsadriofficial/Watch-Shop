@@ -107,7 +107,7 @@ const Cart = () => {
                                 className="img-fluid"
                               />
                             </div>
-                            <div className="col-lg-10">
+                            <div className="col-lg-10 d-flex flex-column justify-content-center align-items-center">
                               <h5>{item.name}</h5>
                               <p>{item.description}</p>
                             </div>
