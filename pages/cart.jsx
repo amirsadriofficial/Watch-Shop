@@ -73,7 +73,7 @@ const Cart = () => {
           {currentProducts == 0 ? (
             <div className="col-md-12 text-center mb-5">
               <MdShoppingCart size={100} />
-              <h3 className="text-bold">Cart Is Empty</h3>
+              <h3 className="text-bold">Cart is empty</h3>
               <Link href="/product" className="btn btn-outline-success mt-3">
                 {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                 <a className="btn btn-outline-success mt-3">Products</a>
