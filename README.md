@@ -1,7 +1,7 @@
 # Watch Shop
 
 ### Visit Website
-Click On The [Website](https://watch-shop-amirsadriofficial.vercel.app) To Visit.
+Click on the [Website](https://watch-shop-amirsadriofficial.vercel.app) to visit.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
